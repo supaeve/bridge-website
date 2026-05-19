@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Bridge</title>
+    <meta name="description" content="Terms and conditions for using the Bridge mentorship platform.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #e0e0e0;
+            background: #0a0a0f;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1540 0%, #13131a 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #f59e0b;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #f59e0b;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+            line-height: 1.2;
+        }
+        
+        .last-updated {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 50px;
+        }
+        
+        .content h2 {
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #f59e0b;
+            font-weight: 700;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content h3 {
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 14px;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        
+        .content h4 {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #fcd34d;
+            font-weight: 600;
+        }
+        
+        .content p {
+            margin-bottom: 18px;
+            color: #c0c0c0;
+            font-size: 16px;
+        }
+        
+        .content ul, .content ol {
+            margin-bottom: 20px;
+            padding-left: 28px;
+            color: #c0c0c0;
+        }
+        
+        .content li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .content strong, .content b {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .content em {
+            color: #fbbf24;
+            font-style: normal;
+        }
+        
+        .content a {
+            color: #f59e0b;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: #f59e0b;
+        }
+        
+        .content code {
+            background: rgba(245, 158, 11, 0.12);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            color: #fbbf24;
+        }
+        
+        .content hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px 0;
+        }
+        
+        .highlight-box {
+            background: rgba(245, 158, 11, 0.08);
+            border-left: 4px solid #f59e0b;
+            padding: 24px;
+            margin: 28px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box strong {
+            color: #f59e0b;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #f59e0b;
+        }
+        
+        .footer-bottom {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 36px;
+            }
+            
+            .content {
+                padding: 30px 24px;
+            }
+            
+            .content h2 {
+                font-size: 26px;
+            }
+            
+            .content h3 {
+                font-size: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Bridge</a>
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 class="page-title">Terms of Service</h1>
+        <p class="last-updated">Last Updated: May 19, 2026</p>
+        
+        <div class="content">
+            <h2>Terms of Service for Bridge</h2>
+<p><strong>Last Updated: May 19, 2026</strong></p>
+<p><strong>PLEASE READ THESE TERMS OF SERVICE CAREFULLY BEFORE USING BRIDGE.</strong></p>
+<h2>Agreement to Terms</h2>
+<p>By accessing or using Bridge ("the App," "Platform," "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use Bridge.</p>
+<p>If you are under 18 years old, your parent or legal guardian must review and agree to these Terms on your behalf.</p>
+<h2>1. Definitions</h2>
+<ul>
+<li><strong>"Bridge," "we," "us," "our":</strong> The Bridge mentorship platform and its operators</li>
+<li><strong>"User," "you," "your":</strong> Any person who accesses or uses the Service</li>
+<li><strong>"Student":</strong> A user seeking mentorship</li>
+<li><strong>"Mentor":</strong> An approved user providing mentorship</li>
+<li><strong>"Session":</strong> A scheduled mentorship meeting between a student and mentor</li>
+<li><strong>"Content":</strong> Any text, images, information, or materials posted on the Platform</li>
+<li><strong>"Minor":</strong> Any user under 18 years of age</li>
+</ul>
+<h2>2. Eligibility</h2>
+<h3>2.1 Age Requirements</h3>
+<p>To use Bridge, you must:
+- Be at least 13 years old
+- If under 18, have parental or guardian consent
+- Provide accurate age information</p>
+<h3>2.2 Account Requirements</h3>
+<p>To create an account, you must:
+- Provide accurate and complete information
+- Maintain the security of your account credentials
+- Notify us immediately of any unauthorized use
+- Be legally capable of entering into binding contracts</p>
+<h3>2.3 Prohibited Users</h3>
+<p>You may not use Bridge if you:
+- Have been previously banned from the Platform
+- Are a registered sex offender
+- Have been convicted of crimes involving minors
+- Are prohibited by law from using the Service</p>
+<h2>3. Account Registration</h2>
+<h3>3.1 Creating an Account</h3>
+<p>When you create an account:
+- You agree to provide truthful, accurate information
+- You are responsible for all activity on your account
+- You must maintain the confidentiality of your password
+- You must be a real person (no bots or fake accounts)</p>
+<h3>3.2 Parental Consent (For Minors)</h3>
+<p>If you are under 18:
+- You must provide a parent/guardian's email address
+- Your parent/guardian will receive a consent request
+- Your account will be restricted until consent is received
+- Your parent/guardian can review and manage your account</p>
+<h3>3.3 Mentor Verification</h3>
+<p>To become a mentor, you must:
+- Complete the mentor application process
+- Provide accurate credentials (university, employment, etc.)
+- Wait for approval from our team
+- Agree to additional mentor guidelines
+- Undergo background verification (where applicable)</p>
+<h2>4. User Conduct</h2>
+<h3>4.1 Acceptable Use</h3>
+<p>You agree to:
+- Use Bridge for lawful mentorship purposes only
+- Treat all users with respect and professionalism
+- Provide honest and accurate information
+- Attend scheduled sessions or provide reasonable notice of cancellation
+- Use appropriate language and behavior</p>
+<h3>4.2 Prohibited Conduct</h3>
+<p>You must NOT:</p>
+<p><strong>General Prohibitions:</strong>
+- Harass, bully, threaten, or intimidate other users
+- Use offensive, discriminatory, or hateful language
+- Share false, misleading, or fraudulent information
+- Impersonate another person or entity
+- Spam or send unsolicited commercial messages</p>
+<p><strong>Content Prohibitions:</strong>
+- Post illegal, harmful, or dangerous content
+- Share sexual, explicit, or inappropriate material
+- Promote violence, self-harm, or illegal activities
+- Infringe on intellectual property rights
+- Share personal contact information publicly (phone numbers, addresses)</p>
+<p><strong>Platform Misuse:</strong>
+- Attempt to bypass age verification or parental consent
+- Create multiple accounts or fake profiles
+- Use automated tools, bots, or scrapers
+- Interfere with or disrupt the Service
+- Attempt to gain unauthorized access to systems
+- Reverse engineer or copy the Platform</p>
+<p><strong>Mentorship Misconduct:</strong>
+- Request or arrange meetings outside the Platform
+- Solicit money or gifts from students
+- Engage in any form of grooming behavior
+- Share inappropriate personal information
+- Cancel sessions repeatedly without cause
+- Provide intentionally harmful advice</p>
+<h3>4.3 Consequences of Violations</h3>
+<p>Violations may result in:
+- Warning or temporary suspension
+- Permanent account termination
+- Reporting to parents/guardians (for minors)
+- Reporting to law enforcement (for illegal activity)
+- Legal action</p>
+<h2>5. Mentorship Sessions</h2>
+<h3>5.1 Booking and Scheduling</h3>
+<ul>
+<li>Students can book sessions with available mentors</li>
+<li>Mentors set their own availability</li>
+<li>Sessions should be conducted through Platform-approved channels</li>
+<li>Both parties should attend sessions on time</li>
+</ul>
+<h3>5.2 Cancellation Policy</h3>
+<ul>
+<li>Either party may cancel with at least 24 hours notice (recommended)</li>
+<li>Last-minute cancellations should be avoided</li>
+<li>Repeated cancellations may result in account restrictions</li>
+<li>No refunds are issued (the Service is free)</li>
+</ul>
+<h3>5.3 Session Conduct</h3>
+<p>During sessions:
+- Maintain professional and appropriate behavior
+- Focus on mentorship and career guidance
+- Do not share excessive personal information
+- Keep discussions platform-appropriate
+- Do not request to move conversations off-platform</p>
+<h3>5.4 No Guarantee of Outcomes</h3>
+<p>Bridge facilitates mentorship connections but does not guarantee:
+- Specific career outcomes or job placements
+- University admissions
+- Improvement in specific skills
+- Availability of particular mentors</p>
+<h2>6. Content and Intellectual Property</h2>
+<h3>6.1 Your Content</h3>
+<p>You retain ownership of content you post, but by posting content you grant Bridge:
+- A worldwide, non-exclusive, royalty-free license
+- To use, copy, modify, distribute, and display your content
+- For the purpose of operating and improving the Service
+- This license ends when you delete your content or account</p>
+<h3>6.2 Bridge's Intellectual Property</h3>
+<p>Bridge owns all rights to:
+- The Platform design, features, and functionality
+- Bridge name, logo, and branding
+- Original content created by Bridge (guides, templates, etc.)</p>
+<p>You may not:
+- Copy, modify, or distribute Bridge's intellectual property
+- Use Bridge branding without permission
+- Create derivative works based on the Platform</p>
+<h3>6.3 User-Generated Content</h3>
+<p>Bridge does not:
+- Endorse user-generated content
+- Verify the accuracy of user information
+- Guarantee the quality of mentorship advice</p>
+<p>We may remove content that violates these Terms or our policies.</p>
+<h2>7. Privacy and Data</h2>
+<h3>7.1 Privacy Policy</h3>
+<p>Your use of Bridge is governed by our Privacy Policy, which is incorporated into these Terms by reference. Please review our Privacy Policy at [link].</p>
+<h3>7.2 Data Security</h3>
+<p>While we implement security measures, you acknowledge:
+- No system is completely secure
+- You are responsible for your account security
+- You should not share sensitive information through the Platform</p>
+<h3>7.3 Communications</h3>
+<p>By using Bridge, you consent to receive:
+- Essential service communications (booking confirmations, etc.)
+- Important safety and policy updates
+- Optional notifications (which you can disable)</p>
+<h2>8. Safety and Reporting</h2>
+<h3>8.1 Safeguarding Commitment</h3>
+<p>Bridge is committed to protecting minors. We:
+- Screen and approve all mentors
+- Monitor for inappropriate behavior
+- Maintain reporting mechanisms
+- Cooperate with authorities on safety issues</p>
+<h3>8.2 Reporting System</h3>
+<p>If you encounter inappropriate behavior:
+- Use the in-app report function immediately
+- Provide detailed information about the incident
+- We will investigate all reports promptly
+- Serious violations will be reported to authorities</p>
+<h3>8.3 Mandatory Reporting</h3>
+<p>We are legally obligated to report:
+- Suspected child abuse or neglect
+- Threats of violence or self-harm
+- Illegal activity involving minors</p>
+<h2>9. Disclaimers</h2>
+<h3>9.1 Service "As Is"</h3>
+<p>Bridge is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, including:
+- Uninterrupted or error-free service
+- Accuracy of information
+- Quality of mentorship
+- Compatibility with your device</p>
+<h3>9.2 No Professional Advice</h3>
+<p>Bridge facilitates mentorship but:
+- Advice is not professional career counseling
+- Mentors are not licensed therapists or counselors
+- Information is for guidance only, not professional advice
+- You should verify important information independently</p>
+<h3>9.3 Third-Party Content</h3>
+<p>We are not responsible for:
+- Advice or information provided by mentors
+- Content posted by users
+- Third-party websites linked from Bridge
+- Actions taken based on mentorship advice</p>
+<h2>10. Limitation of Liability</h2>
+<p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong></p>
+<h3>10.1 Damages</h3>
+<p>Bridge and its operators shall not be liable for:
+- Indirect, incidental, or consequential damages
+- Loss of profits, data, or opportunities
+- Emotional distress or personal injury
+- Damages arising from use of the Service
+- Damages from interactions with other users</p>
+<h3>10.2 Maximum Liability</h3>
+<p>Our total liability shall not exceed:
+- £100 (one hundred British pounds), or
+- The amount you paid to use Bridge (which is zero, as it's free)</p>
+<h3>10.3 Exceptions</h3>
+<p>These limitations do not apply where prohibited by law or for:
+- Death or personal injury caused by our negligence
+- Fraud or fraudulent misrepresentation
+- Any other liability that cannot be excluded by law</p>
+<h2>11. Indemnification</h2>
+<p>You agree to indemnify, defend, and hold harmless Bridge and its operators from:
+- Claims arising from your use of the Service
+- Your violation of these Terms
+- Your violation of any rights of third parties
+- Content you post on the Platform
+- Your interactions with other users</p>
+<h2>12. Termination</h2>
+<h3>12.1 By You</h3>
+<p>You may terminate your account at any time by:
+- Using the account deletion feature in the app
+- Contacting support@bridge-mentorship.com</p>
+<h3>12.2 By Us</h3>
+<p>We may suspend or terminate your account:
+- For violation of these Terms
+- For violation of our policies
+- For illegal activity
+- To comply with legal requirements
+- At our discretion for safety reasons</p>
+<h3>12.3 Effect of Termination</h3>
+<p>Upon termination:
+- Your access to the Service ends immediately
+- Your data will be deleted per our Privacy Policy
+- These Terms survive termination where applicable
+- Sections 6, 9, 10, 11, and 13 survive termination</p>
+<h2>13. Dispute Resolution</h2>
+<h3>13.1 Governing Law</h3>
+<p>These Terms are governed by the laws of England and Wales, without regard to conflict of law principles.</p>
+<h3>13.2 Informal Resolution</h3>
+<p>Before filing a legal claim, you agree to:
+- Contact us at legal@bridge-mentorship.com
+- Describe the dispute in detail
+- Attempt to resolve the matter informally
+- Allow 30 days for resolution attempts</p>
+<h3>13.3 Jurisdiction</h3>
+<p>You agree that any legal action must be brought in the courts of England and Wales.</p>
+<h3>13.4 Class Action Waiver</h3>
+<p>You agree to bring claims individually, not as part of a class action or representative proceeding.</p>
+<h2>14. General Provisions</h2>
+<h3>14.1 Changes to Terms</h3>
+<p>We may update these Terms at any time. We will notify you of material changes by:
+- Posting updated Terms in the app
+- Sending an email notification
+- Requiring you to accept new Terms</p>
+<p>Continued use after changes constitutes acceptance.</p>
+<h3>14.2 Severability</h3>
+<p>If any provision is found unenforceable, the remaining provisions continue in full effect.</p>
+<h3>14.3 Waiver</h3>
+<p>Our failure to enforce any provision does not constitute a waiver of that provision.</p>
+<h3>14.4 Assignment</h3>
+<p>You may not assign these Terms. We may assign our rights and obligations to another entity.</p>
+<h3>14.5 Entire Agreement</h3>
+<p>These Terms, along with our Privacy Policy and Safeguarding Policy, constitute the entire agreement between you and Bridge.</p>
+<h3>14.6 Force Majeure</h3>
+<p>We are not liable for delays or failures due to circumstances beyond our reasonable control.</p>
+<h3>14.7 Language</h3>
+<p>These Terms are written in English. Any translations are for convenience only.</p>
+<h2>15. Contact Information</h2>
+<p>For questions about these Terms:</p>
+<p><strong>Email:</strong> legal@bridge-mentorship.com  
+<strong>Support:</strong> support@bridge-mentorship.com  
+<strong>Safeguarding:</strong> safety@bridge-mentorship.com</p>
+<p><strong>Mailing Address:</strong>  
+Bridge Mentorship  
+[Your Business Address]  
+United Kingdom</p>
+<p>---</p>
+<h2>Summary of Key Terms</h2>
+<p>✓ You must be 13+ to use Bridge (18+ or with parental consent)  
+✓ Be respectful and professional at all times  
+✓ No harassment, inappropriate content, or misconduct  
+✓ We can terminate accounts for violations  
+✓ Service is provided "as is" with no guarantees  
+✓ Report safety concerns immediately  
+✓ We comply with UK law</p>
+<p><strong>By using Bridge, you agree to these Terms of Service.</strong></p>
+<p><strong>Last Updated: May 19, 2026</strong>  
+<strong>Version 1.0</strong></p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/safeguarding">Safeguarding</a>
+                <a href="mailto:support@mybridgementor.com">Support</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bridge. Made with ♥ for students.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

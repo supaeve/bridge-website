@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safeguarding Policy - Bridge</title>
+    <meta name="description" content="How Bridge keeps students safe and protects minors.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #e0e0e0;
+            background: #0a0a0f;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1540 0%, #13131a 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #f59e0b;
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #f59e0b;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+            line-height: 1.2;
+        }
+        
+        .last-updated {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 50px;
+        }
+        
+        .content h2 {
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #f59e0b;
+            font-weight: 700;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content h3 {
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 14px;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        
+        .content h4 {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #fcd34d;
+            font-weight: 600;
+        }
+        
+        .content p {
+            margin-bottom: 18px;
+            color: #c0c0c0;
+            font-size: 16px;
+        }
+        
+        .content ul, .content ol {
+            margin-bottom: 20px;
+            padding-left: 28px;
+            color: #c0c0c0;
+        }
+        
+        .content li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .content strong, .content b {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .content em {
+            color: #fbbf24;
+            font-style: normal;
+        }
+        
+        .content a {
+            color: #f59e0b;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .content a:hover {
+            border-bottom-color: #f59e0b;
+        }
+        
+        .content code {
+            background: rgba(245, 158, 11, 0.12);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            color: #fbbf24;
+        }
+        
+        .content hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px 0;
+        }
+        
+        .highlight-box {
+            background: rgba(245, 158, 11, 0.08);
+            border-left: 4px solid #f59e0b;
+            padding: 24px;
+            margin: 28px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box strong {
+            color: #f59e0b;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #f59e0b;
+        }
+        
+        .footer-bottom {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 36px;
+            }
+            
+            .content {
+                padding: 30px 24px;
+            }
+            
+            .content h2 {
+                font-size: 26px;
+            }
+            
+            .content h3 {
+                font-size: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Bridge</a>
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 class="page-title">Safeguarding Policy</h1>
+        <p class="last-updated">Last Updated: May 19, 2026</p>
+        
+        <div class="content">
+            <h2>Safeguarding Policy for Bridge</h2>
+<p><strong>Last Updated: May 19, 2026</strong></p>
+<h2>Our Commitment</h2>
+<p>Bridge is committed to providing a safe environment for all users, especially minors. This Safeguarding Policy outlines our approach to protecting young people from harm while using our mentorship platform.</p>
+<h2>1. Policy Statement</h2>
+<p>Bridge recognizes that:
+- The welfare of young people is paramount
+- All users have a right to protection from abuse
+- We have a duty to create a safe platform
+- Everyone shares responsibility for safeguarding</p>
+<p>We are committed to:
+- Preventing harm to young people
+- Responding appropriately to concerns
+- Working with parents, guardians, and authorities
+- Continuously improving our safety measures</p>
+<h2>2. Scope</h2>
+<p>This policy applies to:
+- All Bridge users (students, mentors, staff)
+- All interactions on the Platform
+- All sessions and communications
+- All user-generated content</p>
+<h2>3. Age Verification and Parental Consent</h2>
+<h3>3.1 Age Verification</h3>
+- Users must verify they are 13 or older
+- Age is verified during registration
+- False age information results in immediate account termination
+<h3>3.2 Parental Consent (Under 18s)</h3>
+- Users under 18 must provide parent/guardian email
+- Parents receive a consent request explaining:
+  - How Bridge works
+  - What data is collected
+  - Safety measures in place
+  - How to monitor their child's account
+- Accounts are restricted until consent is received
+- Parents can withdraw consent at any time
+<h3>3.3 Parental Access</h3>
+Parents of under-18 users can:
+- Review their child's profile information
+- See scheduled sessions (not session content)
+- Receive notifications of reports or incidents
+- Request account deletion
+- Contact us with concerns
+<h2>4. Mentor Screening and Approval</h2>
+<h3>4.1 Application Process</h3>
+All mentor applications undergo review:
+- Identity verification
+- Credentials verification (university, employment)
+- Profile review for appropriateness
+- Assessment of motivation and suitability
+<h3>4.2 Background Checks</h3>
+Where legally possible and appropriate:
+- DBS checks for UK-based professional mentors
+- Educational verification for alumni mentors
+- Employment verification for professional mentors
+<h3>4.3 Approval Criteria</h3>
+Mentors must:
+- Be 18 or older
+- Have genuine mentorship credentials
+- Demonstrate appropriate motivation
+- Pass all screening checks
+- Agree to mentor code of conduct
+<h3>4.4 Rejection Criteria</h3>
+Applications are rejected for:
+- Criminal convictions involving minors
+- Registered sex offender status
+- False or misleading information
+- Inappropriate profile content
+- Suspicious behavior during vetting
+<h2>5. Platform Safety Features</h2>
+<h3>5.1 Communication Monitoring</h3>
+- All messages are logged
+- Automated detection of inappropriate content
+- Random sampling for quality assurance
+- Parent/guardian visibility for under-18 accounts
+<h3>5.2 Session Logging</h3>
+- All sessions are recorded in our database
+- Start times, durations, and participants logged
+- Session metadata available for safety reviews
+- Pattern analysis for concerning behavior
+<h3>5.3 Content Moderation</h3>
+- Profile content is reviewed before approval
+- User-reported content is reviewed promptly
+- AI-assisted detection of inappropriate content
+- Human review of flagged content
+<h3>5.4 Blocking and Reporting</h3>
+Users can:
+- Block any user immediately
+- Report inappropriate behavior
+- Report concerning content
+- Flag safety concerns anonymously
+<h2>6. Prohibited Conduct</h2>
+<p>The following behaviors are strictly prohibited:</p>
+<h3>6.1 Grooming Behaviors</h3>
+- Requesting personal contact information
+- Suggesting meetings outside the Platform
+- Excessive personal questions
+- Boundary violations
+- Building inappropriate relationships
+<h3>6.2 Inappropriate Content</h3>
+- Sexual or suggestive material
+- Harassment or bullying
+- Discriminatory content
+- Violence or threats
+- Self-harm content
+<h3>6.3 Exploitation</h3>
+- Soliciting money or gifts
+- Requesting favors or services
+- Commercial solicitation
+- Fraudulent activity
+<h2>7. Reporting and Response</h2>
+<h3>7.1 How to Report</h3>
+Users can report through:
+- In-app report button on any profile or message
+- Email to safety@bridge-mentorship.com
+- Parent/guardian hotline (for under-18 concerns)
+<h3>7.2 What to Report</h3>
+Report any:
+- Inappropriate messages or behavior
+- Requests for personal information
+- Suggestions to meet offline
+- Sexual or suggestive content
+- Harassment or bullying
+- Any behavior that makes you uncomfortable
+<h3>7.3 Response Timeline</h3>
+- <strong>Critical reports:</strong> Immediate action (suspension, authorities contacted)
+- <strong>Serious reports:</strong> Investigated within 24 hours
+- <strong>Standard reports:</strong> Investigated within 3 business days
+- Reporter notified of outcome (within privacy constraints)
+<h3>7.4 Investigation Process</h3>
+1. Report received and logged
+2. Immediate risk assessment
+3. Account suspension if necessary
+4. Evidence gathering (messages, profile, history)
+5. User interviews if appropriate
+6. Decision and action taken
+7. Follow-up with reporter
+8. Parents notified (for minor users)
+<h2>8. Disciplinary Actions</h2>
+<h3>8.1 Warnings</h3>
+First-time minor violations may receive:
+- Formal warning
+- Temporary restriction of features
+- Required acknowledgment of policies
+<h3>8.2 Suspension</h3>
+Serious or repeated violations result in:
+- Temporary account suspension (7-30 days)
+- Review of all account activity
+- Conditions for reinstatement
+<h3>8.3 Permanent Ban</h3>
+Severe violations result in:
+- Immediate permanent account termination
+- Ban from creating new accounts
+- Reporting to authorities (if illegal)
+- Parents/guardians notified (for minors)
+<h3>8.4 Legal Action</h3>
+We reserve the right to:
+- Report illegal activity to law enforcement
+- Cooperate with police investigations
+- Preserve evidence for legal proceedings
+- Take civil action for damages
+<h2>9. Mandatory Reporting</h2>
+<p>Bridge staff will report to authorities:
+- Suspected child abuse or neglect
+- Disclosure of abuse by a minor
+- Threats of violence or self-harm
+- Child sexual exploitation
+- Illegal activity involving minors</p>
+<p>We comply with:
+- UK safeguarding legislation
+- Local authority reporting requirements
+- Police liaison procedures</p>
+<h2>10. Staff Training and Responsibilities</h2>
+<h3>10.1 Staff Training</h3>
+All Bridge staff receive training on:
+- Recognizing signs of abuse
+- Responding to disclosures
+- Reporting procedures
+- Safeguarding legislation
+- Platform safety features
+<h3>10.2 Designated Safeguarding Lead</h3>
+Bridge has a Designated Safeguarding Lead (DSL):
+- Responsible for safeguarding oversight
+- Point of contact for serious concerns
+- Liaison with external agencies
+- Policy review and updates
+<p>Contact: dsl@bridge-mentorship.com</p>
+<h2>11. Partnerships and External Support</h2>
+<p>We work with:
+- <strong>NSPCC:</strong> Guidance on child protection
+- <strong>Internet Watch Foundation:</strong> Online safety resources
+- <strong>Childline:</strong> Support for young people
+- <strong>Local Authorities:</strong> Safeguarding partnerships</p>
+<h2>12. Information for Parents and Guardians</h2>
+<h3>12.1 What Parents Should Know</h3>
+- Who their child is connecting with
+- What mentorship sessions involve
+- How to use parental controls
+- Warning signs to watch for
+- How to report concerns
+<h3>12.2 Warning Signs</h3>
+Contact us if your child:
+- Becomes secretive about online activity
+- Receives gifts or money from mentors
+- Mentions meeting mentors offline
+- Shows emotional distress after sessions
+- Has excessive contact with a mentor
+<h3>12.3 Parent Resources</h3>
+We provide:
+- Parent guide to using Bridge safely
+- Email notifications of key activities
+- Access to session schedules
+- Direct contact to safety team
+<h2>13. User Education</h2>
+<p>We educate users about:
+- Safe online behavior
+- Recognizing inappropriate conduct
+- How to report concerns
+- Protecting personal information
+- Setting healthy boundaries</p>
+<p>Educational resources include:
+- Safety tips in the app
+- Regular safety reminders
+- Mentor code of conduct
+- Student safety guidelines</p>
+<h2>14. Privacy and Confidentiality</h2>
+<h3>14.1 Balancing Privacy and Safety</h3>
+We balance user privacy with safety by:
+- Only monitoring when necessary
+- Maintaining confidentiality of reports
+- Limiting access to sensitive information
+- Being transparent about monitoring
+<h3>14.2 Information Sharing</h3>
+We share information only when:
+- Required by law
+- Necessary to protect a child
+- With parental consent
+- With authorities investigating abuse
+<h2>15. Continuous Improvement</h2>
+<p>We regularly:
+- Review and update policies
+- Analyze safety incidents
+- Implement new safety features
+- Conduct safety audits
+- Seek feedback from users and parents</p>
+<h2>16. Policy Review</h2>
+<p>This policy is reviewed:
+- Annually at minimum
+- After any serious incident
+- When legislation changes
+- Based on emerging risks</p>
+<h2>17. Contact and Support</h2>
+<h3>17.1 Safeguarding Team</h3>
+Email: safety@bridge-mentorship.com  
+Response time: Within 24 hours for non-urgent, immediate for critical
+<h3>17.2 Designated Safeguarding Lead</h3>
+Email: dsl@bridge-mentorship.com
+<h3>17.3 Parent Support</h3>
+Email: parents@bridge-mentorship.com  
+Phone: [UK phone number]
+<h3>17.4 Emergency</h3>
+For immediate danger, always call:
+- <strong>Police:</strong> 999 (UK)
+- <strong>NSPCC Helpline:</strong> 0808 800 5000
+- <strong>Childline:</strong> 0800 1111
+<p>---</p>
+<h2>Quick Reference for Users</h2>
+<h3>If you see something concerning:</h3>
+1. <strong>Block the user immediately</strong>
+2. <strong>Take a screenshot (if safe to do)</strong>
+3. <strong>Use the report button</strong>
+4. <strong>Tell a trusted adult</strong>
+5. <strong>Don't engage further</strong>
+<h3>Red flags to report:</h3>
+🚩 Requests for personal phone/address  
+🚩 Suggestions to meet offline  
+🚩 Sexual or inappropriate content  
+🚩 Requests for money or gifts  
+🚩 Excessive personal questions  
+🚩 Making you feel uncomfortable
+<p><strong>When in doubt, report it. We'd rather investigate nothing than miss something important.</strong></p>
+<p>---</p>
+<p><strong>Everyone has a role in keeping Bridge safe. Thank you for helping us protect young people.</strong></p>
+<p><strong>Safeguarding Policy Version 1.0</strong>  
+<strong>Effective Date: May 19, 2026</strong>  
+<strong>Next Review: May 19, 2027</strong></p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/safeguarding">Safeguarding</a>
+                <a href="mailto:support@mybridgementor.com">Support</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bridge. Made with ♥ for students.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
