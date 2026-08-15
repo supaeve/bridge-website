@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Bridge Waitlist</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber: #F5A623;
+      --amber-dark: #C47D00;
+      --bg: #0A0A0F;
+      --surface: #13131A;
+      --surface2: #1C1C26;
+      --border: #2a2a3a;
+      --text: #F0EDE8;
+      --muted: rgba(240,237,232,0.45);
+      --violet: #9B7FE8;
+      --lime: #8DCC6A;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 60px;
+    }
+
+    .container {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 36px; }
+    .logo {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+    .logo span { font-weight: 300; color: var(--muted); font-size: 22px; }
+    .tagline { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* Role selector */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .role-btn {
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .role-btn:hover { border-color: var(--amber); }
+    .role-btn.active {
+      border-color: var(--amber);
+      background: rgba(245,166,35,0.12);
+    }
+    .role-btn .emoji { font-size: 24px; display: block; margin-bottom: 6px; }
+    .role-btn .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .role-btn.active .label { color: var(--amber); }
+
+    /* Form fields */
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--amber);
+    }
+    .field select option { background: var(--surface2); }
+    .field textarea { min-height: 80px; resize: vertical; }
+
+    /* Tag picker */
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .tag-chip {
+      padding: 6px 12px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .tag-chip:hover { border-color: var(--amber); }
+    .tag-chip.selected {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #0A0A0F;
+      font-weight: 700;
+    }
+
+    /* Section divider */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin: 20px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* Submit */
+    .submit-btn {
+      width: 100%;
+      background: var(--amber);
+      color: #0A0A0F;
+      border: none;
+      border-radius: var(--radius);
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: opacity 0.15s;
+      letter-spacing: 0.3px;
+    }
+    .submit-btn:hover { opacity: 0.9; }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Success state */
+    .success {
+      text-align: center;
+      padding: 40px 24px;
+      display: none;
+    }
+    .success .tick { font-size: 56px; margin-bottom: 16px; }
+    .success h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .success p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    /* Error */
+    .error-msg {
+      background: rgba(255,80,80,0.12);
+      border: 1px solid rgba(255,80,80,0.3);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #ff6b6b;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .note {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    /* Hidden sections */
+    .student-fields, .mentor-fields { display: none; }
+    .student-fields.show, .mentor-fields.show { display: block; }
+
+    @media (max-width: 400px) {
+      .field-row { grid-template-columns: 1fr; }
+      .role-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">Bridge <span>– mentorship</span></div>
+      <p class="tagline">Free 1:1 mentorship for students. Join the waitlist.</p>
+    </div>
+
+    <div class="card" id="form-card">
+      <h1 class="card-title">Join the waitlist 🎉</h1>
+      <p class="card-sub">
+        Be first to know when Bridge launches. We're building something special —
+        free mentorship connecting students with professionals, alumni, and peers who get it.
+      </p>
+
+      <form id="waitlist-form">
+
+        <!-- Role selector -->
+        <div class="field">
+          <label>I am a…</label>
+          <div class="role-grid">
+            <div class="role-btn" data-role="student" onclick="selectRole('student')">
+              <span class="emoji">🎒</span>
+              <span class="label">Student</span>
+            </div>
+            <div class="role-btn" data-role="mentor" onclick="selectRole('mentor')">
+              <span class="emoji">💼</span>
+              <span class="label">Mentor</span>
+            </div>
+            <div class="role-btn" data-role="both" onclick="selectRole('both')">
+              <span class="emoji">🌟</span>
+              <span class="label">Both</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Common fields -->
+        <div class="field-row">
+          <div class="field">
+            <label>First name *</label>
+            <input type="text" id="first_name" placeholder="Your first name" required />
+          </div>
+          <div class="field">
+            <label>Last name *</label>
+            <input type="text" id="last_name" placeholder="Your last name" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email address *</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+
+        <!-- Student fields -->
+        <div class="student-fields" id="student-fields">
+          <div class="section-label">About you as a student</div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Year group</label>
+              <select id="year_group">
+                <option value="">Select year…</option>
+                <option>Year 7</option>
+                <option>Year 8</option>
+                <option>Year 9</option>
+                <option>Year 10</option>
+                <option>Year 11</option>
+                <option>Year 12</option>
+                <option>Year 13</option>
+                <option>University - Year 1</option>
+                <option>University - Year 2</option>
+                <option>University - Year 3+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>School / College</label>
+              <input type="text" id="school_name" placeholder="School name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Career interests <span style="font-weight:400;text-transform:none">(pick up to 5)</span></label>
+            <div class="tag-grid" id="career-tags">
+              <!-- populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Mentor fields -->
+        <div class="mentor-fields" id="mentor-fields">
+          <div class="section-label">About you as a mentor</div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Job title</label>
+              <input type="text" id="job_title" placeholder="e.g. Software Engineer" />
+            </div>
+            <div class="field">
+              <label>Employer / University</label>
+              <input type="text" id="employer" placeholder="e.g. Google, UCL" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Mentor type</label>
+            <select id="mentor_type">
+              <option value="">Select type…</option>
+              <option value="professional">Professional (working in industry)</option>
+              <option value="alumni">Alumni (recent graduate)</option>
+              <option value="peer">Peer (fellow student)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Areas of expertise <span style="font-weight:400;text-transform:none">(pick up to 5)</span></label>
+            <div class="tag-grid" id="expertise-tags">
+              <!-- populated by JS -->
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Availability</label>
+            <input type="text" id="availability" placeholder="e.g. Weekday evenings, weekends" />
+          </div>
+        </div>
+
+        <!-- How heard -->
+        <div class="field" id="how-heard-field" style="display:none">
+          <div class="section-label">One last thing</div>
+          <div class="field">
+            <label>How did you hear about Bridge?</label>
+            <select id="how_heard">
+              <option value="">Select…</option>
+              <option>Social media</option>
+              <option>Friend or family</option>
+              <option>School / teacher</option>
+              <option>Google search</option>
+              <option>Event or talk</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn" disabled>
+          Join the waitlist →
+        </button>
+
+        <div class="error-msg" id="error-msg">
+          Something went wrong. Please try again or email hello@mybridgementor.com
+        </div>
+
+        <p class="note">
+          🔒 Your data is stored securely and never sold.<br/>
+          We'll only email you about Bridge.
+        </p>
+
+      </form>
+
+      <!-- Success -->
+      <div class="success" id="success-state">
+        <div class="tick">🎉</div>
+        <h2>You're on the list!</h2>
+        <p>
+          Thanks for joining the Bridge waitlist.<br/>
+          We'll be in touch when we launch — keep an eye on your inbox.
+        </p>
+        <p style="margin-top:16px;color:#F5A623;font-weight:600;">
+          Tell a friend → share Bridge with someone who needs a mentor.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ─── Config ───────────────────────────────────────────────────────────────
+    const SUPABASE_URL = 'https://qawartznevlbsnayisbd.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFhd2FydHpuZXZsYnNuYXlpc2JkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5NjY0MTYsImV4cCI6MjA5MjU0MjQxNn0.jn3mW8XsR3LBceDFJNiiVGGzwVyuAoXwz37Cg2o5g3c';
+
+    // ─── Tag options ──────────────────────────────────────────────────────────
+    const CAREER_INTERESTS = [
+      'Finance', 'Investment Banking', 'Law', 'Medicine', 'Technology',
+      'Engineering', 'Marketing', 'Consulting', 'Media & TV', 'Education',
+      'Architecture', 'Science', 'Arts & Design', 'Entrepreneurship',
+      'Nursing', 'Social Work', 'Politics', 'Sport', 'Music',
+    ];
+
+    const EXPERTISE_AREAS = [
+      'Finance', 'Investment Banking', 'Law', 'Medicine', 'Technology',
+      'Engineering', 'Marketing', 'Consulting', 'CV Writing', 'Interview Prep',
+      'UCAS', 'Oxbridge', 'Apprenticeships', 'A-Level Maths', 'A-Level Sciences',
+      'A-Level Humanities', 'GCSE Revision', 'Personal Statement', 'Networking',
+    ];
+
+    // ─── State ────────────────────────────────────────────────────────────────
+    let selectedRole = null;
+    let selectedCareerTags = [];
+    let selectedExpertiseTags = [];
+
+    // ─── Render tag pickers ───────────────────────────────────────────────────
+    function renderTags(containerId, options, selectedArr, max, onToggle) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      options.forEach(tag => {
+        const chip = document.createElement('div');
+        chip.className = 'tag-chip' + (selectedArr.includes(tag) ? ' selected' : '');
+        chip.textContent = tag;
+        chip.onclick = () => onToggle(tag, chip, selectedArr, max);
+        container.appendChild(chip);
+      });
+    }
+
+    function toggleTag(tag, chip, arr, max) {
+      if (arr.includes(tag)) {
+        arr.splice(arr.indexOf(tag), 1);
+        chip.classList.remove('selected');
+      } else if (arr.length < max) {
+        arr.push(tag);
+        chip.classList.add('selected');
+      }
+    }
+
+    renderTags('career-tags', CAREER_INTERESTS, selectedCareerTags, 5,
+      (tag, chip) => toggleTag(tag, chip, selectedCareerTags, 5));
+    renderTags('expertise-tags', EXPERTISE_AREAS, selectedExpertiseTags, 5,
+      (tag, chip) => toggleTag(tag, chip, selectedExpertiseTags, 5));
+
+    // ─── Role selection ───────────────────────────────────────────────────────
+    function selectRole(role) {
+      selectedRole = role;
+
+      document.querySelectorAll('.role-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.role === role);
+      });
+
+      document.getElementById('student-fields').classList.toggle('show',
+        role === 'student' || role === 'both');
+      document.getElementById('mentor-fields').classList.toggle('show',
+        role === 'mentor' || role === 'both');
+      document.getElementById('how-heard-field').style.display = 'block';
+      document.getElementById('submit-btn').disabled = false;
+    }
+
+    // ─── Form submission ──────────────────────────────────────────────────────
+    document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btn = document.getElementById('submit-btn');
+      const errEl = document.getElementById('error-msg');
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+      errEl.style.display = 'none';
+
+      const firstName = document.getElementById('first_name').value.trim();
+      const lastName = document.getElementById('last_name').value.trim();
+      const email = document.getElementById('email').value.trim().toLowerCase();
+
+      if (!firstName || !email || !selectedRole) {
+        errEl.style.display = 'block';
+        errEl.textContent = 'Please fill in your name, email and select a role.';
+        btn.disabled = false;
+        btn.textContent = 'Join the waitlist →';
+        return;
+      }
+
+      const payload = {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        role: selectedRole,
+        year_group: document.getElementById('year_group')?.value || null,
+        school_name: document.getElementById('school_name')?.value.trim() || null,
+        career_interests: selectedCareerTags.length ? selectedCareerTags : null,
+        job_title: document.getElementById('job_title')?.value.trim() || null,
+        employer: document.getElementById('employer')?.value.trim() || null,
+        mentor_type: document.getElementById('mentor_type')?.value || null,
+        expertise_areas: selectedExpertiseTags.length ? selectedExpertiseTags : null,
+        availability: document.getElementById('availability')?.value.trim() || null,
+        how_heard: document.getElementById('how_heard')?.value || null,
+      };
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error(await res.text());
+
+        // Show success
+        document.getElementById('waitlist-form').style.display = 'none';
+        document.getElementById('success-state').style.display = 'block';
+
+      } catch (err) {
+        console.error('Waitlist error:', err);
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Join the waitlist →';
+      }
+    });
+  </script>
+</body>
+</html>
