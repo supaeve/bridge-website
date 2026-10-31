@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/tracker-download.js": {
+      "includeFiles": "tracker-private/**"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/tracker-private/:path*",
+      "destination": "/11-plus-tracker/",
+      "permanent": false
+    }
+  ]
+}
